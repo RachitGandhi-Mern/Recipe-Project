@@ -4,7 +4,7 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import Recipecontext from './Context/Recipecontext'
+import {Recipecontext} from './Context/Recipecontext'
 
 createRoot(document.getElementById('root')).render(
   <Recipecontext>

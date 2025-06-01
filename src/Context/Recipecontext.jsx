@@ -1,17 +1,14 @@
-import React, { createContext, useState } from 'react'
+import { createContext, useState } from 'react';
 
-export const recipescontext = createContext(null)
+export const recipescontext = createContext();
 
-const RecipeContext = (props) => {
-  const [data, setData] = useState([])
-  
-  console.log(data)
-  
+export const Recipecontext = ({ children }) => {
+  const [data, setdata] = useState([]);
+   const [favorites, setFavorites] = useState([]);
+
   return (
-    <recipescontext.Provider value={{ data, setData }}>
-      {props.children}
+    <recipescontext.Provider value={{ data, setdata,favorites, setFavorites }}>
+      {children}
     </recipescontext.Provider>
-  )
-}
-
-export default RecipeContext
+  );
+};

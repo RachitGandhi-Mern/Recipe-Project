@@ -39,19 +39,19 @@ const AboutComponent = () => {
 
   const team = [
     {
-      name: 'Sarah Chen',
+      name: 'Suraj Verma',
       role: 'Head Chef & Founder',
       image: 'https://images.unsplash.com/photo-1494790108755-2616b512c31d?w=150&h=150&fit=crop&crop=face',
       description: 'Michelin-starred chef with 15 years of culinary excellence.'
     },
     {
-      name: 'Marcus Johnson',
+      name: 'Divyanshu',
       role: 'Community Manager',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
       description: 'Passionate about connecting food lovers worldwide.'
     },
     {
-      name: 'Elena Rodriguez',
+      name: 'Rachit Gandhi',
       role: 'Recipe Developer',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
       description: 'Expert in international cuisines and dietary adaptations.'

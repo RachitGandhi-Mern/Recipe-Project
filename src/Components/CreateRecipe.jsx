@@ -11,6 +11,9 @@ const CreateRecipe = () => {
   const [currentTag, setCurrentTag] = useState('');
   
   const {data , setdata} = useContext(recipescontext)
+
+
+
   const { register, handleSubmit,reset, formState: { errors } } = useForm()
 
   const addIngredient = () => {
@@ -69,7 +72,11 @@ const CreateRecipe = () => {
     recipe.instructions = instructions.filter(i => i.value.trim()).map(i => i.value);
     recipe.tags = tags;
     recipe.id = nanoid()
+    // const copydata =[...data]
+    // copydata.push(recipe)
+    // setdata(copydata)
     setdata([...data , recipe])
+    console.log(recipe)
     reset()
   };
 

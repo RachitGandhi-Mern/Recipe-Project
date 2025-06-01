@@ -4,7 +4,7 @@ import Home from '../Components/Home'
 import About from '../Components/About'
 import Recipes from '../Components/Recipes'
 import Create from '../Components/CreateRecipe'
-import Fav from '../Components/Fav'
+import Fav from '../Components/Fav';
 import Getrecipe from '../Components/Getrecipe'
 
 const Mainroutes = () => {
@@ -15,7 +15,7 @@ const Mainroutes = () => {
       <Route path="/Recipes" element={<Recipes />} />
       <Route path="/Create" element={<Create />} />
       <Route path='/getrecipe' element={<Getrecipe/>} />
-      <Route path='/Favourites' element={<Fav/>}/>
+      <Route path='/Favorites' element={<Fav/>}/>
     </Routes>
   )
 }
