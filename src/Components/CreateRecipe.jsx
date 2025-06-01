@@ -12,8 +12,6 @@ const CreateRecipe = () => {
   
   const {data , setdata} = useContext(recipescontext)
 
-
-
   const { register, handleSubmit,reset, formState: { errors } } = useForm()
 
   const addIngredient = () => {
@@ -72,6 +70,7 @@ const CreateRecipe = () => {
     recipe.instructions = instructions.filter(i => i.value.trim()).map(i => i.value);
     recipe.tags = tags;
     recipe.id = nanoid()
+    console.log(recipe)
     // const copydata =[...data]
     // copydata.push(recipe)
     // setdata(copydata)
@@ -170,7 +169,7 @@ const CreateRecipe = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-400 font-medium mb-2 flex items-center gap-2">
+                  <label className=" text-gray-400 font-medium mb-2 flex items-center gap-2">
                     <Clock className="w-4 h-4" />
                     Prep Time <span className="text-red-400">*</span>
                   </label>
@@ -182,6 +181,35 @@ const CreateRecipe = () => {
                   />
                   {errors.Preptime && <p className="text-red-400 text-sm mt-1">{errors.Preptime.message}</p>}
                 </div>
+
+
+
+
+                <div>
+                  <label className="block text-gray-400 font-medium mb-2 flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    Price <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    {...register("Price", { required: "Price required" })}
+                    type="Number"
+                    className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-xl text-white placeholder-gray-500 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition-all duration-200 hover:border-gray-700/70 focus:outline-none"
+                    placeholder="20"
+                  />
+                  {errors.Price && <p className="text-red-400 text-sm mt-1">{errors.Price.message}</p>}
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <div>
                   <label className="block text-gray-400 font-medium mb-2">
