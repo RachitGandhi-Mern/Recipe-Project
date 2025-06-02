@@ -7,8 +7,8 @@ const Favorites = () => {
   console.log(favorites)
   
   return (
-    <div className="min-h-screen w-full p-4 sm:p-6 lg:p-8 bg-black text-white pt-20 sm:pt-25">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-center sm:text-left">
+    <div className="min-h-screen w-full p-4 sm:p-6 lg:p-8 bg-black text-white pt-20 sm:pt-25 ">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-center sm:text-left pt-15">
         Your Favorite Recipes
       </h1>
       {(favorites && favorites.length === 0) ? (

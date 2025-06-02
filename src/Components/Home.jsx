@@ -31,7 +31,8 @@ const Home = () => {
       path: "/Recipes"
     }
   ];
-const navigate = useNavigate();
+    const navigate = useNavigate();
+    
   const stats = [
     { label: "Recipes Created", value: "1,234", icon: BookOpen },
     { label: "Active Users", value: "5.6K", icon: Users },

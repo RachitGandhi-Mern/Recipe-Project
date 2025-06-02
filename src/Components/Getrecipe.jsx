@@ -12,6 +12,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { recipescontext } from '../Context/Recipecontext';
 
+
 const GetRecipe = () => {
   const [favorites, setFavorites] = useState(new Set());
   const [bookmarks, setBookmarks] = useState(new Set());
@@ -98,7 +99,7 @@ const GetRecipe = () => {
         </button>
         <div className="absolute top-6 right-6 flex gap-3">
           <button
-            onClick={toggleFavorite}
+            onClick={() => toggleFavorite(recipe)}
             className={`p-3 rounded-full border backdrop-blur-sm transition-all duration-200 hover:scale-110 ${
               favorites.has(recipe.id)
                 ? 'bg-red-500/20 border-red-500/50 text-red-400'
