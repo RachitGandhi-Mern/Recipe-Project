@@ -40,7 +40,6 @@ const Nav = () => {
           <div className="absolute -inset-1 bg-sky-400/10 rounded-lg animate-pulse opacity-50"></div>
         </div>
 
-        {/* Desktop Navigation Links with stagger animation */}
         <div className="hidden md:flex gap-6">
           {[
             { to: "/", label: "Home", delay: "0ms" },
@@ -60,15 +59,15 @@ const Nav = () => {
               <span className="inline-block transition-all duration-300 group-hover:scale-105 relative z-10">
                 {label}
               </span>
-              {/* Sliding underline effect */}
+
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-500 transition-all duration-300 group-hover:w-full"></div>
-              {/* Shimmer effect on hover */}
+
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
             </NavLink>
           ))}
         </div>
 
-        {/* Mobile Menu Button with rotation animation */}
+
         <button
           onClick={toggleMenu}
           className="md:hidden p-2 rounded-lg text-slate-300 hover:text-sky-400 hover:bg-sky-400/10 transition-all duration-300 ease-in-out group relative overflow-hidden"
