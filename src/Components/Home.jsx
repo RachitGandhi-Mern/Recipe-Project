@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChefHat, BookOpen, Plus, Search, TrendingUp, Clock, Users, Star, Heart } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,22 +16,22 @@ const Home = () => {
       icon: Plus,
       title: "Create Recipe",
       description: "Add your favorite recipes with detailed instructions and ingredients",
-      path: "/create"
+      path: "/Create"
     },
     {
       icon: BookOpen,
       title: "My Recipes",
       description: "Browse and manage your personal collection of recipes",
-      path: "/recipes"
+      path: "/Favourites"
     },
     {
       icon: Search,
       title: "Discover",
       description: "Find new recipes and get inspired for your next meal",
-      path: "startcooking"
+      path: "/Recipes"
     }
   ];
-
+const navigate = useNavigate();
   const stats = [
     { label: "Recipes Created", value: "1,234", icon: BookOpen },
     { label: "Active Users", value: "5.6K", icon: Users },
@@ -135,6 +136,7 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div
+              onClick={() => navigate(feature.path)}
                 key={index}
                 className={`group cursor-pointer transition-all duration-500 hover:scale-[1.02] ${hoveredCard === index ? 'z-10' : ''}`}
                 onMouseEnter={() => setHoveredCard(index)}
