@@ -5,17 +5,22 @@ import SingleCard from './SingleCard';
 const Favorites = () => {
   const { favorites } = useContext(recipescontext);
   console.log(favorites)
+  
   return (
-
-    <div className="min-h-screen p-6 bg-black text-white">
-      <h1 className="text-3xl font-bold mb-6">Your Favorite Recipes</h1>
-      
+    <div className="min-h-screen w-full p-4 sm:p-6 lg:p-8 bg-black text-white pt-20 sm:pt-25">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-center sm:text-left">
+        Your Favorite Recipes
+      </h1>
       {(favorites && favorites.length === 0) ? (
-        <p className="text-gray-400">No favorites yet. Start adding some!</p>
+        <div className="flex flex-col items-center justify-center min-h-[50vh]">
+          <p className="text-gray-400 text-center text-lg sm:text-xl">
+            No favorites yet. Start adding some!
+          </p>
+        </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6">
           {favorites && favorites.map((recipe) => (
-            <SingleCard recipe={recipe} />
+            <SingleCard key={recipe.id} recipe={recipe} />
           ))}
         </div>
       )}
