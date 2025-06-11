@@ -10,7 +10,8 @@ import {
   Flame
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { recipescontext } from '../Context/Recipecontext';
+import { RecipesContext } from '../Context/Recipecontext';
+
 
 
 const GetRecipe = () => {
@@ -18,7 +19,7 @@ const GetRecipe = () => {
   const [bookmarks, setBookmarks] = useState(new Set());
   const [activeTab, setActiveTab] = useState('ingredients');
 
-  const { data } = useContext(recipescontext);
+  const { data } = useContext(RecipesContext);
   const navigate = useNavigate();
 
   const recipe = data && data.length > 0 ? data[0] : {

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { recipescontext } from '../Context/Recipecontext';
+import { RecipesContext } from '../Context/Recipecontext';
 import SingleCard from './SingleCard';
 
 const Favorites = () => {
-  const { favorites } = useContext(recipescontext);
+  const { favorites } = useContext(RecipesContext);
   console.log(favorites)
   
   return (

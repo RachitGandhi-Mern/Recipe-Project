@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Plus, X, Clock, Users, ChefHat, Camera, Save, Star, Receipt } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { nanoid } from 'nanoid';
-import { recipescontext } from '../Context/Recipecontext';
+import { RecipesContext } from '../Context/Recipecontext';
+
 
 const CreateRecipe = () => {
   const [ingredients, setIngredients] = useState([{ id: 1, value: '' }]);
@@ -10,7 +11,7 @@ const CreateRecipe = () => {
   const [tags, setTags] = useState(['vegetarian', 'quick']);
   const [currentTag, setCurrentTag] = useState('');
   
-  const {data , setdata} = useContext(recipescontext)
+  const {data , setdata} = useContext(RecipesContext)
 
   const { register, handleSubmit,reset, formState: { errors } } = useForm()
 
