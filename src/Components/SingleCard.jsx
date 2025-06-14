@@ -32,14 +32,18 @@ const SingleCard = ({ recipe }) => {
     setFavorites((prev) =>
       prev.find((r) => r.id === recipe.id)
         ? prev.filter((r) => r.id !== recipe.id)
-        : [...prev, data?.find((r) => r.id === recipe.id) || recipe]
+        : [...prev, recipe] // Simplified - just add the recipe directly
     );
   };
 
+  // Check if recipe is favorited
+  const isFavorited = favorites.some((fav) => fav.id === recipe.id);
+  
+  // Check if recipe is bookmarked
+  const isBookmarked = bookmarks.has(recipe.id);
+
   return (
-    <div
-      className="group relative rounded-2xl overflow-hidden border border-gray-800/70 bg-gray-900/80 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-gray-900/50 hover:border-gray-700/90 transition-all duration-500"
-    >
+    <div className="group relative rounded-2xl overflow-hidden border border-gray-800/70 bg-gray-900/80 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-gray-900/50 hover:border-gray-700/90 transition-all duration-500">
       <div className="relative">
         <img
           src={recipe.Image}
@@ -53,24 +57,24 @@ const SingleCard = ({ recipe }) => {
           <button
             onClick={() => toggleFavorite(recipe)}
             className={`p-2 rounded-full border backdrop-blur-sm transition-all duration-200 hover:scale-110 ${
-              favorites.some((fav) => fav.id === recipe.id)
-                ? 'bg-gray-800/50 border-gray-600 text-gray-300'
-                : 'bg-black/40 border-gray-700 text-gray-500 hover:text-gray-300 hover:border-gray-600'
+              isFavorited
+                ? 'bg-red-500/70 border-red-400 text-red-100' // More visible when favorited
+                : 'bg-black/40 border-gray-700 text-gray-500 hover:text-red-400 hover:border-red-600'
             }`}
             aria-label="Toggle Favorite"
           >
-            <Heart className="w-4 h-4" />
+            <Heart className={`w-4 h-4 ${isFavorited ? 'fill-current' : ''}`} />
           </button>
           <button
             onClick={() => toggleBookmark(recipe.id)}
             className={`p-2 rounded-full border backdrop-blur-sm transition-all duration-200 hover:scale-110 ${
-              bookmarks.has(recipe.id)
-                ? 'bg-gray-800/50 border-gray-600 text-gray-300'
-                : 'bg-black/40 border-gray-700 text-gray-500 hover:text-gray-300 hover:border-gray-600'
+              isBookmarked
+                ? 'bg-blue-500/70 border-blue-400 text-blue-100' // More visible when bookmarked
+                : 'bg-black/40 border-gray-700 text-gray-500 hover:text-blue-400 hover:border-blue-600'
             }`}
             aria-label="Toggle Bookmark"
           >
-            <Bookmark className="w-4 h-4" />
+            <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
           </button>
         </div>
       </div>
