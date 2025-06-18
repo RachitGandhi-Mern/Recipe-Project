@@ -16,8 +16,8 @@ const SingleCard = ({ recipe }) => {
     });
   };
 
-  const NavigateHandler = (recipeId) => {
-    navigate("/getrecipe", { state: { recipeId } });
+  const NavigateHandler = (recipe) => {
+    navigate("/getrecipe", { state: { recipe } });
   };
 
   const getDifficultyColor = (level) => {
@@ -86,7 +86,7 @@ const SingleCard = ({ recipe }) => {
           {recipe.difficulty}
         </div>
         <button
-          onClick={() => NavigateHandler(recipe.id)}
+          onClick={() => NavigateHandler(recipe)}
           className="block mt-3 w-full text-center text-sm font-semibold text-blue-400 hover:underline"
         >
           View Recipe

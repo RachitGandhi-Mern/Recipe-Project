@@ -11,30 +11,29 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { RecipesContext } from '../Context/Recipecontext';
-
-
+  import { useLocation } from 'react-router-dom';
 
 const GetRecipe = () => {
+
   const [favorites, setFavorites] = useState(new Set());
   const [bookmarks, setBookmarks] = useState(new Set());
   const [activeTab, setActiveTab] = useState('ingredients');
 
-  const { data } = useContext(RecipesContext);
+  // const { data } = useContext(RecipesContext);
   const navigate = useNavigate();
 
-  const recipe = data && data.length > 0 ? data[0] : {
-    id: 1,
-    title: "Truffle Risotto Supreme",
-    Image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&h=600&fit=crop",
-    Chefname: "Marco Benedetti",
-    difficulty: "Hard",
-    price: "$45",
-    Preptime: "45 mins",
-    Servings: 4,
-    rating: 4.8,
-    reviews: 127,
-    tags: ["Italian", "Vegetarian", "Luxury", "Creamy", "Truffle"]
-  };
+
+const location = useLocation();
+const recipe = location.state?.recipe;
+if (!recipe) {
+  return (
+    <div className="min-h-screen flex items-center justify-center text-white text-xl">
+      No recipe data found. Please go back and try again.
+    </div>
+  );
+}
+
+
 
   const toggleFavorite = () => {
     setFavorites((prev) => {

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux' // currently unused, can be removed if not needed
 import axios from '../Api/Recipesconfig'
-import SingleCard from './SingleCard' // ✅ make sure the path is correct
-import { nanoid } from 'nanoid/non-secure'
+import SingleCard from './SingleCard' 
 import { Receipt } from 'lucide-react'
 
 const Recipes = () => {
@@ -11,8 +9,8 @@ const Recipes = () => {
   const apifetch = async () => {
     try {
       const { data } = await axios.get("/recipes")
-      setapiRecipes(data.recipes) // Changed from data.meals to data.recipes
-      console.log(data.recipes) // Fixed console.log to match the data structure
+      setapiRecipes(data.recipes) 
+      console.log(data.recipes) 
     } catch (error) {
       console.log(error)
     }
@@ -31,7 +29,7 @@ const Recipes = () => {
               <SingleCard
                 key={recipe.id} // Changed from recipe.idMeal to recipe.id
                 recipe={{
-                  id: nanoid(), // Updated property mapping
+                  id: recipe.id, // Updated property mapping
                   Image: recipe.image, // Changed from recipe.strMealThumb to recipe.image
                   title: recipe.name, // Changed from recipe.strMeal to recipe.name
                   difficulty: recipe.difficulty, // Now uses actual difficulty from API
